@@ -58,18 +58,23 @@ func _init_grid():
 	for i in range(grid_size):
 		grid[i].resize(grid_size)
 
-func move(n: PhysicsBody3D, dir: Vector3):
+func move(n: PhysicsBody3D, dir: Vector3) -> KinematicCollision3D:
 	var initial_pos = snapped_to_grid(n.global_position)
 	var delta = dir.normalized() * tiles_size
 	var collision = n.move_and_collide(delta)
 	if collision:
 		var col = collision.get_collider()
-		if col and col.has_method("nudge"):
-			col.nudge(delta)
-		n.global_position = initial_pos
+		if col and col.has_method("nudge") and  col.nudge(delta):
+			n.global_position = initial_pos + delta
+		else:
+			n.global_position = initial_pos
 	else:
 		var new_pos = get_object_grid_pos(n)
 		set_at_pos(n, new_pos.x, new_pos.y)
+	return collision
 
 func _ready():
+	_init_grid()
+
+func clear():
 	_init_grid()
