@@ -7,12 +7,16 @@ func _ready() -> void:
 		root.roomba = self
 	utils.register(self)
 
+func move(direction:Vector3):
+	grid.move(self, direction)
+	grid.sync.emit()
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
-		grid.move(self, Vector3.FORWARD)
+		move(Vector3.FORWARD)
 	elif event.is_action_pressed("down"):
-		grid.move(self, Vector3.BACK)
+		move(Vector3.BACK)
 	elif event.is_action_pressed("left"):
-		grid.move(self, Vector3.LEFT)
+		move(Vector3.LEFT)
 	elif event.is_action_pressed("right"):
-		grid.move(self, Vector3.RIGHT)
+		move(Vector3.RIGHT)
