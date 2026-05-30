@@ -19,6 +19,7 @@ func _ready() -> void:
 	moving_x = false
 	moving_z = false
 	moving = false
+	utils.register(self)
 
 # Call to set the position in which move the human.
 # xFirst: by passing true the human moves along x and then along z, viceversa if it's false
