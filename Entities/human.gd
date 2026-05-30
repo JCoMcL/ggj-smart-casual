@@ -12,9 +12,9 @@ var moving: bool = false
 
 var stressLevel = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Example: set initial target
+	_register_on_grid.call_deferred()
 	target_position = position  # Start at current position
 	moving_x = false
 	moving_z = false
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	if velocity != Vector3.ZERO:
 		move_and_collide(velocity)
 
-func nudge(direction: Vector3):
-	# dummy "stressLevel"
+func nudge(direction: Vector3) -> bool:
 	stressLevel += 1
 	print("Human collided, stress level: ", stressLevel)
+	return false
