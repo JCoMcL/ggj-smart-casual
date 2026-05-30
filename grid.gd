@@ -1,11 +1,17 @@
 extends Node
 class_name Grid
 
-var grid: Array[Array]
+var grid: Array[Array] #[Node]
+var grid_history: Array[Dictionary] #[Dictionary][Node -> Vector2i]
 var node_positions: Dictionary = {}
 
 signal grid_changed
-signal sync
+signal step
+
+func sync():
+	grid_history.append(node_positions.duplicate())
+	print(grid_history.size(), grid_history[-1])
+	step.emit()
 
 const grid_size = 128
 const tiles_size = 1.0
@@ -79,6 +85,24 @@ func move(n: PhysicsBody3D, dir: Vector3) -> KinematicCollision3D:
 
 func _ready():
 	_init_grid()
+
+func undo():
+	if grid_history.is_empty():
+		return
+	var prev: Dictionary = grid_history.pop_back()
+	for i in range(grid_size):
+		for j in range(grid_size):
+			grid[i][j] = null
+	node_positions.clear()
+	for n in prev:
+		var pos: Vector2i = prev[n]
+		node_positions[n] = pos
+		grid[_to_index(pos.x)][_to_index(pos.y)] = n
+		var node3d := n as Node3D
+		if node3d != null:
+			node3d.global_position = snapped_to_grid(Vector3(pos.x * tiles_size, node3d.global_position.y, pos.y * tiles_size))
+	grid_changed.emit()
+	print(grid_history.size(), node_positions)
 
 func clear():
 	_init_grid()
