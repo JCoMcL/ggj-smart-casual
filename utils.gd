@@ -1,34 +1,27 @@
 extends Node
 class_name Utils
 
-func move(n: CollisionObject3D, dir: Vector3):
-	var grid = _get_grid(n)
-	var start_pos = n.global_position
-	var target_pos: Vector3
+func move(n: PhysicsBody3D, dir: Vector3):
+	var grid = utils._get_grid(self)
+	var initial_pos = n.global_position
 	if grid:
-		target_pos = grid.snapped_to_grid(start_pos + dir)
-	else:
-		target_pos = start_pos + dir
-	var move_vec = Vector3(target_pos.x - start_pos.x, 0, target_pos.z - start_pos.z)
+		initial_pos = grid.snapped_to_grid(initial_pos)
 
-	var collision = n.move_and_collide(move_vec)
+	var delta = dir
+	if grid:
+		delta = delta.normalized() * grid.tiles_size
 
+	var target = initial_pos + delta
+	if grid:
+		target = grid.snapped_to_grid(target) #shouldn't be neccessary but doesn't hurt
+
+	var collision = n.move_and_collide(delta)
 	if collision:
-		var collider = collision.get_collider()
-		var nudge_success = collider.has_method("nudge") and collider.nudge(dir)
-		if nudge_success:
-			n.global_position.x = target_pos.x
-			n.global_position.z = target_pos.z
-		else:
-			n.global_position = start_pos
-			return
-	else:
-		n.global_position.x = target_pos.x
-		n.global_position.z = target_pos.z
+		var col = collision.get_collider()
+		if col and col.has_method("nudge"):
+			col.nudge(delta)
+		n.global_position = initial_pos
 
-	if grid:
-		var pos = grid.get_object_grid_pos(n)
-		grid.set_at_pos(n, pos.x, pos.y)
 
 func register(n: Node3D):
 	var grid = _get_grid(n)
