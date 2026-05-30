@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://d3j3ybphlsh7k" path="res://Ui/Exit botton v2.png" id="4_jnlp7"]
 [ext_resource type="Script" uid="uid://cngax8ynqw0cf" path="res://UI_scripts/start_game_button.gd" id="4_l8v81"]
 [ext_resource type="Script" uid="uid://b3j5tqbh3gpol" path="res://UI_scripts/exit_button.gd" id="5_jnlp7"]
+[ext_resource type="Texture2D" uid="uid://da6kxadmht3n5" path="res://Ui/pause menu.png" id="7_tw3kd"]
+[ext_resource type="Texture2D" uid="uid://dur6tgbpegjut" path="res://Ui/Resume (pausemenu).png" id="8_gd4vy"]
+[ext_resource type="Texture2D" uid="uid://cvpwysnyfhtp5" path="res://Ui/MainMenu (pausemenu).png" id="9_qw60f"]
+[ext_resource type="Texture2D" uid="uid://dihlw52gfa1jk" path="res://Ui/Quit (pausemenu).png" id="10_eji0w"]
 
 [node name="Root" type="Control" unique_id=1950327171]
 layout_mode = 3
@@ -60,3 +64,66 @@ unique_name_in_owner = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
+
+[node name="PauseMenuPhone" type="TextureRect" parent="SubViewportContainer/SubViewport" unique_id=393381590]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -276.0
+offset_right = 243.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_tw3kd")
+
+[node name="ResumeButton" type="TextureButton" parent="SubViewportContainer/SubViewport/PauseMenuPhone" unique_id=1447844569]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -191.25
+offset_right = 560.0
+offset_bottom = 208.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("8_gd4vy")
+
+[node name="MainMenuButton" type="TextureButton" parent="SubViewportContainer/SubViewport/PauseMenuPhone" unique_id=1983592661]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -23.75003
+offset_right = 560.0
+offset_bottom = 376.25
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("9_qw60f")
+
+[node name="QuitButton" type="TextureButton" parent="SubViewportContainer/SubViewport/PauseMenuPhone" unique_id=306873525]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = 144.99997
+offset_right = 562.5
+offset_bottom = 545.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("10_eji0w")
