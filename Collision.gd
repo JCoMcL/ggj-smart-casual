@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 
 func nudge(direction: Vector3):
 	print("COLLIDED", direction)
-	Utils.move(self, direction)
+	utils.move(self, direction)

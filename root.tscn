@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bfs2srvl38btg"]
+
+[ext_resource type="Script" uid="uid://vynp1swda7df" path="res://root.gd" id="1_pq8q7"]
+
+[node name="Root" type="Control" unique_id=1950327171]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pq8q7")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1446654125]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1164338855]
+unique_name_in_owner = true
+size = Vector2i(1152, 648)

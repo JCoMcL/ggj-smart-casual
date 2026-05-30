@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ggj-smart-casual"
-run/main_scene="uid://bljxra7ja81s5"
+run/main_scene="uid://bfs2srvl38btg"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+utils="*uid://cagpisp0k4ad8"
 
 [dotnet]
 

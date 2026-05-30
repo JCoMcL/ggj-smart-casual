@@ -13,10 +13,10 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
-		Utils.move(self, Vector3.FORWARD)
+		utils.move(self, Vector3.FORWARD)
 	elif event.is_action_pressed("down"):
-		Utils.move(self, Vector3.BACK)
+		utils.move(self, Vector3.BACK)
 	elif event.is_action_pressed("left"):
-		Utils.move(self, Vector3.LEFT)
+		utils.move(self, Vector3.LEFT)
 	elif event.is_action_pressed("right"):
-		Utils.move(self, Vector3.RIGHT)
+		utils.move(self, Vector3.RIGHT)
