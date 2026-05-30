@@ -18,6 +18,7 @@ func clear_level():
 	
 func change_scene(id:StringName):
 	assert(SCENES.has(id))
+	grid.clear()
 	var level_scn = SCENES[id]
 	var level = level_scn.instantiate()
 	clear_level()
