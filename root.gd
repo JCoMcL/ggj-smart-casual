@@ -1,6 +1,7 @@
 extends Control
 class_name Root
 
+@onready var pause_menu = $PauseMenuPhone
 var roomba: Roomba
 
 var SCENES = {
@@ -28,3 +29,10 @@ static func get_root(from: Node) -> Root:
 	while from and from is not Root:
 		from = from.get_parent()
 	return from
+	
+func _input(event):
+	if event.is_action_pressed("ui_cancel") && not is_main_menu(): # Default Esc key
+		pause_menu.toggle_pause()
+
+func is_main_menu():
+	return not $SubViewportContainer.visible

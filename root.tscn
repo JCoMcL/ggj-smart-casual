@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d34nbfek3s3wu" path="res://Ui/Exit botton Hover.png" id="7_qw60f"]
 [ext_resource type="Texture2D" uid="uid://da6kxadmht3n5" path="res://Ui/pause menu.png" id="7_tw3kd"]
 [ext_resource type="Texture2D" uid="uid://dur6tgbpegjut" path="res://Ui/Resume (pausemenu).png" id="8_gd4vy"]
+[ext_resource type="Script" uid="uid://f6dmptspt15q" path="res://UI_scripts/PauseMenu.gd" id="8_qw60f"]
 [ext_resource type="Texture2D" uid="uid://cvpwysnyfhtp5" path="res://Ui/MainMenu (pausemenu).png" id="9_qw60f"]
 [ext_resource type="Texture2D" uid="uid://dihlw52gfa1jk" path="res://Ui/Quit (pausemenu).png" id="10_eji0w"]
 [ext_resource type="Texture2D" uid="uid://coy7pcqoabmd1" path="res://Ui/Resume hover (pausemenu).png" id="11_qwhpj"]
@@ -89,6 +90,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_tw3kd")
+script = ExtResource("8_qw60f")
 
 [node name="ResumeButton" type="TextureButton" parent="PauseMenuPhone" unique_id=1447844569]
 layout_mode = 1
