@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bm4fghuy1rrrd" path="res://Roomba.gd" id="1_gojnm"]
 [ext_resource type="Script" uid="uid://27dv7gnf1mjb" path="res://Collision.gd" id="2_1c2mv"]
+[ext_resource type="PackedScene" uid="uid://dns06jdrhd211" path="res://human_static_body.tscn" id="3_f7g2b"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1c2mv"]
 
@@ -62,3 +63,6 @@ shape = SubResource("CylinderShape3D_gojnm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=237672589]
 mesh = SubResource("BoxMesh_4ptq8")
+
+[node name="HumanStaticBody" parent="." unique_id=2007997219 instance=ExtResource("3_f7g2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.427736, 1.2597184, 5.667802)
