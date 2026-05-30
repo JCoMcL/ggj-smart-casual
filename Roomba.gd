@@ -13,12 +13,10 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
-		move_and_collide(Vector3.FORWARD)
+		Utils.move(self, Vector3.FORWARD)
 	elif event.is_action_pressed("down"):
-		move_and_collide(Vector3.BACK)
+		Utils.move(self, Vector3.BACK)
 	elif event.is_action_pressed("left"):
-		move_and_collide(Vector3.LEFT)
+		Utils.move(self, Vector3.LEFT)
 	elif event.is_action_pressed("right"):
-		var collidedObj = move_and_collide(Vector3.RIGHT)
-		if collidedObj:
-			collidedObj.get_collider().nudge(Vector3.RIGHT)
+		Utils.move(self, Vector3.RIGHT)
