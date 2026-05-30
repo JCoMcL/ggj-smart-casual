@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rke0w74vio48"]
 
 [ext_resource type="Script" uid="uid://bm4fghuy1rrrd" path="res://Entities/Roomba.gd" id="1_xakqo"]
-[ext_resource type="PackedScene" uid="uid://cs2smn1c2t37o" path="res://Assets/obj_Rooba.glb" id="2_kbs4a"]
+[ext_resource type="PackedScene" uid="uid://7c2gf6vgdbcc" path="res://Assets/obj_Rooba.glb" id="2_kbs4a"]
 [ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="3_dkwem"]
 
 [node name="Roomba" type="CharacterBody3D" unique_id=1452331078]
