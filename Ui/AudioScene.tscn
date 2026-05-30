@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ce15mf17g7jdi"]
+
+[ext_resource type="AudioStream" uid="uid://3sjxqk4uucr3" path="res://Music/Blippy Trance.mp3" id="1_hrsib"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=247593567]
+stream = ExtResource("1_hrsib")
+autoplay = true
