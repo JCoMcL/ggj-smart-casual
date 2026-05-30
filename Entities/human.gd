@@ -14,7 +14,6 @@ var stressLevel = 0
 
 func _ready() -> void:
 	# Example: set initial target
-	_register_on_grid.call_deferred()
 	target_position = position  # Start at current position
 	moving_x = false
 	moving_z = false
