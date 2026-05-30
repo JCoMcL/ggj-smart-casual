@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cu2710hn5uk8q" path="res://Ui/Background image.png" id="2_pyidc"]
 [ext_resource type="Texture2D" uid="uid://bom0pse46lcna" path="res://Ui/Start botton v2.png" id="3_28aoi"]
 [ext_resource type="Texture2D" uid="uid://d3j3ybphlsh7k" path="res://Ui/Exit botton v2.png" id="4_jnlp7"]
+[ext_resource type="Script" uid="uid://cngax8ynqw0cf" path="res://UI_scripts/start_game_button.gd" id="4_l8v81"]
 [ext_resource type="Script" uid="uid://b3j5tqbh3gpol" path="res://UI_scripts/exit_button.gd" id="5_jnlp7"]
 
 [node name="Root" type="Control" unique_id=1950327171]
@@ -14,21 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pq8q7")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1446654125]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1164338855]
-unique_name_in_owner = true
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=336997427]
 layout_mode = 1
@@ -48,6 +34,7 @@ offset_right = 2023.0
 offset_bottom = 1585.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("3_28aoi")
+script = ExtResource("4_l8v81")
 
 [node name="ExitButton" type="TextureButton" parent="." unique_id=551136357]
 layout_mode = 0
@@ -58,3 +45,18 @@ offset_bottom = 1603.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("4_jnlp7")
 script = ExtResource("5_jnlp7")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1446654125]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1164338855]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4

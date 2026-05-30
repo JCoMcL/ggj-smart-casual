@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ryxfv2eg2aoc"]
+
+[ext_resource type="PackedScene" uid="uid://cfgce5fomcxl6" path="res://Levels/CT_Level_1.glb" id="1_n0qsc"]
+[ext_resource type="PackedScene" uid="uid://dns06jdrhd211" path="res://Entities/human.tscn" id="2_rf6l5"]
+[ext_resource type="PackedScene" uid="uid://blp2untsv3j4d" path="res://Entities/pushable.tscn" id="3_syshm"]
+[ext_resource type="PackedScene" uid="uid://rke0w74vio48" path="res://Entities/roomba.tscn" id="4_rfktq"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n0qsc"]
+
+[sub_resource type="Sky" id="Sky_dilhk"]
+sky_material = SubResource("ProceduralSkyMaterial_n0qsc")
+
+[sub_resource type="Environment" id="Environment_3mhv4"]
+background_mode = 2
+sky = SubResource("Sky_dilhk")
+
+[node name="CT_Level_1" unique_id=2033628600 instance=ExtResource("1_n0qsc")]
+
+[node name="Camera" parent="." index="0" unique_id=648629584]
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="103" unique_id=331295726]
+environment = SubResource("Environment_3mhv4")
+
+[node name="HumanStaticBody" parent="." index="104" unique_id=2007997219 instance=ExtResource("2_rf6l5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9938006, 1.05, -1.6786209)
+
+[node name="Pushable" parent="." index="105" unique_id=901592439 instance=ExtResource("3_syshm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2184672, 0.54999995, 1.9554535)
+
+[node name="Roomba" parent="." index="106" unique_id=1452331078 instance=ExtResource("4_rfktq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.895296, 0.54999983, 0.1656599)

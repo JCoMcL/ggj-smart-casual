@@ -4,8 +4,7 @@ class_name Root
 var roomba: Roomba
 
 var SCENES = {
-	&"1": preload("res://test_level.tscn"),
-	&"2": preload("res://test_level_2.tscn"),
+	&"1": preload("res://Levels/level_1.tscn"),
 }
 
 func change_scene(id:StringName):
@@ -15,9 +14,10 @@ func change_scene(id:StringName):
 	for c in %SubViewport.get_children():
 		%SubViewport.remove_child(c)
 	%SubViewport.add_child(level)
+	$SubViewportContainer.visible = true
 
 func _ready() -> void:
-	change_scene("1")
+	$SubViewportContainer.visible=false
 	
 static func get_root(from: Node) -> Root:
 	while from and from is not Root:
