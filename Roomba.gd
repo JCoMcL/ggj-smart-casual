@@ -1,9 +1,11 @@
 extends CharacterBody3D
-
+class_name Roomba
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Root.get_root(self).roomba = self
+	var root = Root.get_root(self)
+	if root:
+		root.roomba = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,7 +1,7 @@
 extends Control
 class_name Root
 
-var roomba: CollisionObject3D
+var roomba: Roomba
 
 var SCENES = {
 	&"1": preload("res://test_level.tscn"),
