@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c2fw87r07glcb"]
+
+[ext_resource type="PackedScene" uid="uid://cuh7ov4rkeuhh" path="res://Levels/base_level.tscn" id="1_kbe2v"]
+[ext_resource type="PackedScene" uid="uid://bpx1kmo1475jb" path="res://Levels/CT_Level_2.glb" id="2_arsda"]
+
+[node name="BaseLevel" unique_id=810629722 instance=ExtResource("1_kbe2v")]
+
+[node name="Level" parent="." index="1" unique_id=713879503 instance=ExtResource("2_arsda")]

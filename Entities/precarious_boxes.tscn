@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqs0igs2geefy"]
+
+[ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="1_wlbb8"]
+[ext_resource type="PackedScene" uid="uid://b2sngnfr5qw7p" path="res://Assets/obj_SmartBox.glb" id="2_x320b"]
+
+[node name="PrecariousBoxes" type="CharacterBody3D" unique_id=1030670552]
+
+[node name="CollisionShape3D" parent="." unique_id=540194866 instance=ExtResource("1_wlbb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="obj_SmartBox" parent="." unique_id=1202280736 instance=ExtResource("2_x320b")]

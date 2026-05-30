@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cuh7ov4rkeuhh"]
+
+[ext_resource type="Script" uid="uid://b4n67u3imfopr" path="res://Levels/base_level.gd" id="1_ujkqx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afxmb"]
+
+[sub_resource type="Sky" id="Sky_dilhk"]
+sky_material = SubResource("ProceduralSkyMaterial_afxmb")
+
+[sub_resource type="Environment" id="Environment_ujkqx"]
+background_mode = 2
+sky = SubResource("Sky_dilhk")
+
+[node name="BaseLevel" type="Node3D" unique_id=810629722]
+script = ExtResource("1_ujkqx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1069218208]
+environment = SubResource("Environment_ujkqx")
