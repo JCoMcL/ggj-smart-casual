@@ -2,7 +2,10 @@ extends Node
 class_name Grid
 
 var grid: Array[Array]
+var node_positions: Dictionary = {}
+
 signal grid_changed
+signal sync
 
 const grid_size = 128
 const tiles_size = 1.0
@@ -45,11 +48,11 @@ func set_at_pos(n: Node, x: int, y: int) -> bool:
 	var iy := _to_index(y)
 	if grid[ix][iy] != null and grid[ix][iy] != n:
 		return false
-	for i in range(grid_size):
-		for j in range(grid_size):
-			if grid[i][j] == n:
-				grid[i][j] = null
+	var old_pos: Variant = node_positions.get(n)
+	if old_pos != null:
+		grid[_to_index(old_pos.x)][_to_index(old_pos.y)] = null
 	grid[ix][iy] = n
+	node_positions[n] = Vector2i(x, y)
 	grid_changed.emit()
 	return true
 
@@ -57,6 +60,7 @@ func _init_grid():
 	grid.resize(grid_size)
 	for i in range(grid_size):
 		grid[i].resize(grid_size)
+	node_positions.clear()
 
 func move(n: PhysicsBody3D, dir: Vector3) -> KinematicCollision3D:
 	var initial_pos = snapped_to_grid(n.global_position)
