@@ -7,9 +7,6 @@ func _ready() -> void:
 		root.roomba = self
 	utils.register(self)
 
-func _process(delta: float) -> void:
-	pass
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
 		utils.move(self, Vector3.FORWARD)

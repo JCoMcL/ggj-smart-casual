@@ -20,12 +20,10 @@ func get_object_grid_pos(n: Node) -> Vector2i:
 	return world_to_grid(Vector3(node3d.global_position.x, 0, node3d.global_position.z))
 
 func snapped_to_grid(v: Vector3) -> Vector3:
-	return Vector3(roundi(v.x / tiles_size) * tiles_size, 0, roundi(v.z / tiles_size) * tiles_size)
+	return Vector3(roundi(v.x / tiles_size) * tiles_size, v.y, roundi(v.z / tiles_size) * tiles_size)
 
 func snap_to_grid(n: Node3D):
-	var snapped_pos = snapped_to_grid(n.global_position)
-	n.global_position.x = snapped_pos.x
-	n.global_position.z = snapped_pos.z
+	n.global_position = snapped_to_grid(n.global_position)
 
 func _to_index(coord: int) -> int:
 	return grid_size / 2 + coord
