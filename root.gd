@@ -3,11 +3,12 @@ class_name Root
 
 @onready var pause_menu = %PauseMenu
 var roomba: Roomba
-var grid: Grid
 
 var current_level:StringName
 var SCENES = {
-	&"1": preload("res://Levels/level_1.tscn"),
+	&"1": load("res://Levels/level_1.tscn"),
+	&"2": load("res://Levels/level_2.tscn"),
+	&"3": load("res://Levels/level_3.tscn")
 }
 
 func clear_level():

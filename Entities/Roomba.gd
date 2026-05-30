@@ -9,10 +9,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
-		utils.move(self, Vector3.FORWARD)
+		grid.move(self, Vector3.FORWARD)
 	elif event.is_action_pressed("down"):
-		utils.move(self, Vector3.BACK)
+		grid.move(self, Vector3.BACK)
 	elif event.is_action_pressed("left"):
-		utils.move(self, Vector3.LEFT)
+		grid.move(self, Vector3.LEFT)
 	elif event.is_action_pressed("right"):
-		utils.move(self, Vector3.RIGHT)
+		grid.move(self, Vector3.RIGHT)
