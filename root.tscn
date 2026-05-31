@@ -8,7 +8,10 @@
 [ext_resource type="Script" uid="uid://b3j5tqbh3gpol" path="res://UI_scripts/exit_button.gd" id="5_jnlp7"]
 [ext_resource type="Script" uid="uid://f6dmptspt15q" path="res://UI_scripts/PauseMenu.gd" id="8_qw60f"]
 [ext_resource type="Script" uid="uid://drju1grn30cn1" path="res://UI_scripts/restart_button.gd" id="8_tw3kd"]
+[ext_resource type="Texture2D" uid="uid://bmkagqdciioev" path="res://Ui/level select.png" id="10_gd4vy"]
+[ext_resource type="Script" uid="uid://bl8ojuvkr445n" path="res://UI_scripts/start_game_Level_2_button.gd" id="11_qw60f"]
 [ext_resource type="Script" uid="uid://dkaaxerlpqmh5" path="res://main_menu_button.gd" id="12_eji0w"]
+[ext_resource type="Script" uid="uid://7trl4kllem1g" path="res://UI_scripts/start_game_Level_3_button.gd" id="12_qwhpj"]
 [ext_resource type="AudioStream" uid="uid://3sjxqk4uucr3" path="res://Music/Blippy Trance.mp3" id="18_blcw0"]
 
 [node name="Root" type="Control" unique_id=1950327171]
@@ -79,6 +82,23 @@ layout_mode = 2
 text = "Exit"
 script = ExtResource("5_jnlp7")
 
+[node name="TopRightPad" type="MarginContainer" parent="." unique_id=1121790247]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.5
+offset_top = -104.0
+offset_right = 99.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LevelSelect" type="Button" parent="TopRightPad" unique_id=1111270502]
+layout_mode = 2
+text = "Level Select"
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1446654125]
 visible = false
 layout_mode = 1
@@ -98,6 +118,7 @@ render_target_update_mode = 0
 
 [node name="PauseMenu" type="PanelContainer" parent="." unique_id=1159885838]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -139,6 +160,89 @@ script = ExtResource("12_eji0w")
 layout_mode = 2
 text = "Quit"
 script = ExtResource("5_jnlp7")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="." unique_id=1689080982]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2" unique_id=27800778]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
+
+[node name="LevelSelect" type="TextureRect" parent="." unique_id=59428523]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_gd4vy")
+
+[node name="Level1Button" type="Button" parent="LevelSelect" unique_id=1146473114]
+layout_mode = 1
+offset_left = 173.0
+offset_top = 102.0
+offset_right = 401.0
+offset_bottom = 187.0
+text = "Level 1"
+script = ExtResource("4_l8v81")
+
+[node name="Level2Button" type="Button" parent="LevelSelect" unique_id=1543877756]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -395.0
+offset_top = 102.0
+offset_right = -170.0
+offset_bottom = 185.0
+grow_horizontal = 0
+text = "Level 2"
+script = ExtResource("11_qw60f")
+
+[node name="Level3Button" type="Button" parent="LevelSelect" unique_id=1381073879]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 181.0
+offset_top = -192.0
+offset_right = 403.0
+offset_bottom = -110.0
+grow_vertical = 0
+text = "Level 3"
+script = ExtResource("12_qwhpj")
+
+[node name="ReturnToMain" type="Button" parent="LevelSelect" unique_id=1342057219]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -195.0
+offset_right = -170.0
+offset_bottom = -111.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Main Menu"
+script = ExtResource("12_eji0w")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=927878229]
 stream = ExtResource("18_blcw0")

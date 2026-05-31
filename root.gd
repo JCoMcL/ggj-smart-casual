@@ -11,6 +11,7 @@ var SCENES = {
 }
 
 func clear_level():
+	%LevelSelect.visible = false
 	$SubViewportContainer.visible = false
 	for c in %SubViewport.get_children():
 		%SubViewport.remove_child(c)
@@ -19,6 +20,7 @@ func clear_level():
 func change_scene(id:StringName):
 	assert(SCENES.has(id))
 	grid.clear()
+	%LevelSelect.visible = false
 	var level_scn = SCENES[id]
 	var level = level_scn.instantiate()
 	clear_level()
