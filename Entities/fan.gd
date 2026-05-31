@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 	)
 
 func grid_update():
+	print("fan update")
 	if high_power:
 		var grid_pos = grid.get_object_grid_pos(self)
 		var infront = grid.get_at_pos(grid_pos.x +1, grid_pos.y)

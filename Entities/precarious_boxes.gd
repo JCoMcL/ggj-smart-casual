@@ -6,7 +6,7 @@ func nudge(direction: Vector3) -> bool:
 		var col = collision.get_collider()
 		if col is Human:
 			col.collision_layer = 0
-			col.setCurrentAnimation("DIE")
+			col.setCurrentAnimation("DIE", direction)
 	collision = grid.move(self, direction)
 	if not collision:
 		$AudioStreamPlayer3D.play()
