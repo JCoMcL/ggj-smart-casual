@@ -107,6 +107,9 @@ func _on_animation_finished(anim_name: StringName):
 		collision_layer = 0
 		currentAnimation = ""
 		Root.get_root(self).next_level()
+	elif anim_name == animationDict["IDLE"]:
+		currentAnimation = ""
+		_play_animation("IDLE")
 	elif anim_name == animationDict["WALK"]:
 		if is_moving:
 			currentAnimation = ""
