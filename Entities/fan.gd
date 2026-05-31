@@ -31,9 +31,11 @@ func grid_update():
 	print("fan update")
 	if high_power:
 		var grid_pos = grid.get_object_grid_pos(self)
-		var infront = grid.get_at_pos(grid_pos.x +1, grid_pos.y)
+		var blow_pos = grid.get_object_grid_pos($BlowTarget)
+		var infront = grid.get_at_pos(blow_pos.x, blow_pos.y)
+		var blow_direction = blow_pos-grid_pos
 		if infront is TileEntity:
-			grid.move(infront, Vector3.RIGHT)
+			grid.move(infront, Vector3(blow_direction.x, 0, blow_direction.y))
 
 func _on_click():
 	high_power = not high_power

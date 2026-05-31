@@ -24,6 +24,7 @@ func next_level():
 	if nextLevel >= SCENES.size():
 		#TODO when we have GAME WIN UI
 		print("GAME WIN")
+		$TextureRectEndScreen.visible=true
 	else:
 		await utils.delay(1.0)
 		change_scene(nextLevel)

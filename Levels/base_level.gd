@@ -19,6 +19,7 @@ static func get_level(from: Node) -> Level:
 func switcheroo(old:Node3D, new:PackedScene):
 	var new_node = new.instantiate()
 	new_node.position = old.position
+	new_node.rotation = old.rotation
 	old.get_parent().add_child(new_node)
 	old.free()
 
