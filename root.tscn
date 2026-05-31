@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bl8ojuvkr445n" path="res://UI_scripts/start_game_Level_2_button.gd" id="11_qw60f"]
 [ext_resource type="Script" uid="uid://dkaaxerlpqmh5" path="res://main_menu_button.gd" id="12_eji0w"]
 [ext_resource type="Script" uid="uid://7trl4kllem1g" path="res://UI_scripts/start_game_Level_3_button.gd" id="12_qwhpj"]
+[ext_resource type="PackedScene" uid="uid://c303bhlufty4o" path="res://level_1_complete.tscn" id="14_qt76e"]
 [ext_resource type="AudioStream" uid="uid://3sjxqk4uucr3" path="res://Music/Blippy Trance.mp3" id="18_blcw0"]
 
 [sub_resource type="GDScript" id="GDScript_qt76e"]
@@ -183,21 +184,6 @@ layout_mode = 2
 text = "Quit"
 script = ExtResource("5_jnlp7")
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="." unique_id=1689080982]
-visible = false
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2" unique_id=27800778]
-handle_input_locally = false
-audio_listener_enable_3d = true
-size = Vector2i(1152, 648)
-render_target_update_mode = 0
-
 [node name="LevelSelect" type="TextureRect" parent="." unique_id=59428523]
 unique_name_in_owner = true
 visible = false
@@ -266,6 +252,20 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Main Menu"
 script = ExtResource("12_eji0w")
+
+[node name="Level1Complete" parent="." unique_id=1473797172 instance=ExtResource("14_qt76e")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1000.0
+offset_bottom = 500.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=927878229]
 stream = ExtResource("18_blcw0")

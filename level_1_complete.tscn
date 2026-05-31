@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c303bhlufty4o"]
+
+[ext_resource type="Texture2D" uid="uid://bmkagqdciioev" path="res://Ui/level select.png" id="1_yepkt"]
+[ext_resource type="Script" uid="uid://bl8ojuvkr445n" path="res://UI_scripts/start_game_Level_2_button.gd" id="2_hbswx"]
+[ext_resource type="Script" uid="uid://dkaaxerlpqmh5" path="res://main_menu_button.gd" id="3_vjdxa"]
+
+[node name="Level1Complete" type="TextureRect" unique_id=1473797172]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yepkt")
+
+[node name="Label" type="Label" parent="." unique_id=884896662]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -198.0
+offset_top = 51.0
+offset_right = 198.0
+offset_bottom = 162.0
+grow_horizontal = 2
+text = "Level 1 completed!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextLevel" type="Button" parent="." unique_id=1046127873]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -52.0
+offset_right = 365.0
+offset_bottom = 65.0
+grow_vertical = 2
+text = "Next Level"
+script = ExtResource("2_hbswx")
+
+[node name="ReturnToMain" type="Button" parent="." unique_id=1159734306]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -393.0
+offset_top = -48.0
+offset_right = -111.0
+offset_bottom = 62.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Main Menu"
+script = ExtResource("3_vjdxa")
