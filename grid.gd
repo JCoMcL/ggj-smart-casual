@@ -1,6 +1,9 @@
 extends Node
 class_name Grid
 
+@export var grid_auto_step_time:float = 1.0
+var _step_time_accum:float
+
 var grid: Array[Array] #[Node]
 var grid_history: Array[Dictionary] #[Dictionary][Node -> Vector2i]
 
@@ -18,6 +21,7 @@ signal grid_changed
 signal step
 
 func sync():
+	_step_time_accum = 0
 	if _dirty or grid_history.is_empty():
 		grid_history.append(node_positions.duplicate())
 	_dirty = false
@@ -132,3 +136,8 @@ func undo():
 
 func clear():
 	_init_grid()
+
+func _process(delta):
+	_step_time_accum += delta
+	if grid_auto_step_time > 0 and _step_time_accum > grid_auto_step_time:
+		sync()
