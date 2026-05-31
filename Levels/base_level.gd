@@ -1,8 +1,11 @@
 extends Node3D
 
+@export var level_size:float = 5
+
 const roomba_scn = preload("res://Entities/roomba.tscn")
 const smartbox_scn = preload("res://Entities/precarious_boxes.tscn")
 const human_scn = preload("res://Entities/human.tscn")
+const fan_scn = preload("res://Entities/fan.tscn")
 
 func switcheroo(old:Node3D, new:PackedScene):
 	var new_node = new.instantiate()
@@ -19,3 +22,8 @@ func _ready():
 				switcheroo(c, smartbox_scn)
 			elif c.name.begins_with("obj_Human"):
 				switcheroo(c, human_scn)
+			elif c.name.begins_with("obj_Smart_Fan"):
+				switcheroo(c, fan_scn)
+			elif c is Camera3D:
+				c.projection = Camera3D.PROJECTION_ORTHOGONAL
+				c.size = level_size
