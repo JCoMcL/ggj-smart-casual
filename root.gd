@@ -31,6 +31,7 @@ func restart():
 
 func _ready() -> void:
 	$SubViewportContainer.visible=false
+	%StartGameButton.grab_focus()
 	
 static func get_root(from: Node) -> Root:
 	while from and from is not Root:
