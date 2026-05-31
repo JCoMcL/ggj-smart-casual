@@ -178,6 +178,7 @@ script = ExtResource("5_jnlp7")
 
 [node name="LevelSelect" type="TextureRect" parent="." unique_id=59428523]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
