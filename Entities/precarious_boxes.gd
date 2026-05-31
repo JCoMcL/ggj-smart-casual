@@ -1,5 +1,6 @@
 extends TileEntity
 
+
 func nudge(direction: Vector3) -> bool:
 	var collision = move_and_collide(direction, true)
 	if collision:
@@ -7,6 +8,10 @@ func nudge(direction: Vector3) -> bool:
 		if col is Human:
 			grid.remove(col)
 			col.get_parent().remove_child(col)
-	var pos_before_move = position
-	grid.move(self, direction)
-	return position != pos_before_move
+	collision = grid.move(self, direction)
+	if not collision:
+		rotation.x = direction.z * PI / 2
+		rotation.z = direction.x * -PI / 2
+		collision_layer = 0
+		return true
+	return false
