@@ -9,7 +9,8 @@ var current_level:int
 var SCENES = [
 	load("res://Levels/level_1.tscn"),
 	load("res://Levels/level_2.tscn"),
-	load("res://Levels/level_3.tscn")
+	load("res://Levels/level_3.tscn"),
+	load("res://Levels/level_4.tscn")
 ]
 
 func clear_level():
