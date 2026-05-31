@@ -11,7 +11,7 @@ var stressLevel = 0
 func _ready() -> void:
 	target_position = position
 	utils.register(self)
-	grid.sync.connect(grid_step)
+	grid.step.connect(grid_step)
 
 # Call to set the position to move the human toward.
 # xFirst: moves along x then z when true, z then x when false.

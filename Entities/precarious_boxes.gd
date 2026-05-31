@@ -6,7 +6,6 @@ func nudge(direction: Vector3) -> bool:
 		var col = collision.get_collider()
 		if col is Human:
 			col.get_parent().remove_child(col)
-			col.queue_free()
 	var pos_before_move = position
 	grid.move(self, direction)
 	return position != pos_before_move

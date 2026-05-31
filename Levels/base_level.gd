@@ -6,8 +6,8 @@ const human_scn = preload("res://Entities/human.tscn")
 
 func switcheroo(old:Node3D, new:PackedScene):
 	var new_node = new.instantiate()
-	old.get_parent().add_child(new_node)
 	new_node.position = old.position
+	old.get_parent().add_child(new_node)
 	old.free()
 
 func _ready():

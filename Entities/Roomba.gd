@@ -8,8 +8,8 @@ func _ready() -> void:
 	utils.register(self)
 
 func move(direction:Vector3):
+	grid.sync()
 	grid.move(self, direction)
-	grid.sync.emit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up"):
@@ -20,3 +20,6 @@ func _input(event: InputEvent) -> void:
 		move(Vector3.LEFT)
 	elif event.is_action_pressed("right"):
 		move(Vector3.RIGHT)
+
+	elif event.is_action_pressed("undo"):
+		grid.undo()
