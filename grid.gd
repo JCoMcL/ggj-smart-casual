@@ -3,6 +3,14 @@ class_name Grid
 
 var grid: Array[Array] #[Node]
 var grid_history: Array[Dictionary] #[Dictionary][Node -> Vector2i]
+
+class NodeInfo:
+	var pos: Vector2i
+	var parent: Node
+	func _init(n: Node3D):
+		pos = grid.get_object_grid_pos(n)
+		parent = n.get_parent()
+
 var node_positions: Dictionary = {}
 
 signal grid_changed
@@ -54,13 +62,24 @@ func set_at_pos(n: Node, x: int, y: int) -> bool:
 	var iy := _to_index(y)
 	if grid[ix][iy] != null and grid[ix][iy] != n:
 		return false
-	var old_pos: Variant = node_positions.get(n)
-	if old_pos != null:
-		grid[_to_index(old_pos.x)][_to_index(old_pos.y)] = null
+	var old_info: Variant = node_positions.get(n)
+	if old_info != null:
+		grid[_to_index(old_info.pos.x)][_to_index(old_info.pos.y)] = null
 	grid[ix][iy] = n
-	node_positions[n] = Vector2i(x, y)
+	node_positions[n] = NodeInfo.new(n)
 	grid_changed.emit()
 	return true
+
+func update_pos(n: Node):
+	var pos = get_object_grid_pos(n)
+	set_at_pos(n, pos.x, pos.y)
+
+func remove(n: Node) -> void:
+	var info: Variant = node_positions.get(n)
+	if info == null:
+		return
+	grid[_to_index(info.pos.x)][_to_index(info.pos.y)] = null
+	node_positions.erase(n)
 
 func _init_grid():
 	grid.resize(grid_size)
@@ -78,9 +97,7 @@ func move(n: PhysicsBody3D, dir: Vector3) -> KinematicCollision3D:
 			n.global_position = initial_pos + delta
 		else:
 			n.global_position = initial_pos
-	else:
-		var new_pos = get_object_grid_pos(n)
-		set_at_pos(n, new_pos.x, new_pos.y)
+	update_pos(n)
 	return collision
 
 func _ready():
@@ -95,12 +112,14 @@ func undo():
 			grid[i][j] = null
 	node_positions.clear()
 	for n in prev:
-		var pos: Vector2i = prev[n]
-		node_positions[n] = pos
-		grid[_to_index(pos.x)][_to_index(pos.y)] = n
+		var info: NodeInfo = prev[n]
+		node_positions[n] = info
+		grid[_to_index(info.pos.x)][_to_index(info.pos.y)] = n
 		var node3d := n as Node3D
 		if node3d != null:
-			node3d.global_position = snapped_to_grid(Vector3(pos.x * tiles_size, node3d.global_position.y, pos.y * tiles_size))
+			if not node3d.is_inside_tree():
+				info.parent.add_child(node3d)
+			node3d.global_position = snapped_to_grid(Vector3(info.pos.x * tiles_size, node3d.global_position.y, info.pos.y * tiles_size))
 	grid_changed.emit()
 	print(grid_history.size(), node_positions)
 
