@@ -1,6 +1,5 @@
 extends TileEntity
 
-
 func nudge(direction: Vector3) -> bool:
 	var collision = move_and_collide(direction, true)
 	if collision:

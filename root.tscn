@@ -259,7 +259,7 @@ grow_vertical = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=927878229]
 stream = ExtResource("18_blcw0")
-volume_db = -7.299
+volume_db = -20.071
 autoplay = true
 
 [node name="TextEdit" type="TextEdit" parent="." unique_id=642145916]
