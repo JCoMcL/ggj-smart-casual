@@ -2,7 +2,6 @@ extends Control
 class_name Root
 
 @onready var pause_menu = %PauseMenu
-var roomba: Roomba
 
 var current_level:StringName
 var SCENES = {

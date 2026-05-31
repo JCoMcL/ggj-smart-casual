@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://v0d5m2m1t876" path="res://Assets/obj_Human.glb" id="2_kodwx"]
 [ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="3_ljsf0"]
 
-[node name="HumanStaticBody" type="StaticBody3D" unique_id=2007997219]
+[node name="Human" type="CharacterBody3D" unique_id=2123237689]
 script = ExtResource("1_8nt7k")
 
 [node name="obj_Human2" parent="." unique_id=724027612 instance=ExtResource("2_kodwx")]
