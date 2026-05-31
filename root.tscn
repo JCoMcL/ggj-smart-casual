@@ -12,23 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://bmkagqdciioev" path="res://Ui/level select.png" id="10_gd4vy"]
 [ext_resource type="Script" uid="uid://bl8ojuvkr445n" path="res://UI_scripts/start_game_Level_2_button.gd" id="11_qw60f"]
 [ext_resource type="Script" uid="uid://dkaaxerlpqmh5" path="res://main_menu_button.gd" id="12_eji0w"]
+[ext_resource type="Script" uid="uid://cecgykfmoe0mo" path="res://UI_scripts/level_select_panel.gd" id="12_qt76e"]
 [ext_resource type="Script" uid="uid://7trl4kllem1g" path="res://UI_scripts/start_game_Level_3_button.gd" id="12_qwhpj"]
 [ext_resource type="PackedScene" uid="uid://c303bhlufty4o" path="res://level_1_complete.tscn" id="14_qt76e"]
 [ext_resource type="AudioStream" uid="uid://3sjxqk4uucr3" path="res://Music/Blippy Trance.mp3" id="18_blcw0"]
-
-[sub_resource type="GDScript" id="GDScript_qt76e"]
-script/source = "extends TextureRect
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="Root" type="Control" unique_id=1950327171]
 layout_mode = 3
@@ -200,7 +187,7 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_gd4vy")
-script = SubResource("GDScript_qt76e")
+script = ExtResource("12_qt76e")
 
 [node name="Level1Button" type="Button" parent="LevelSelect" unique_id=1146473114]
 layout_mode = 1
