@@ -3,21 +3,29 @@ class_name Root
 
 @onready var pause_menu = %PauseMenu
 
-var current_level:StringName
-var SCENES = {
-	&"1": load("res://Levels/level_1.tscn"),
-	&"2": load("res://Levels/level_2.tscn"),
-	&"3": load("res://Levels/level_3.tscn")
-}
+var current_level:int
+var SCENES = [
+	load("res://Levels/level_1.tscn"),
+	load("res://Levels/level_2.tscn"),
+	load("res://Levels/level_3.tscn")
+]
 
 func clear_level():
 	$SubViewportContainer.visible = false
 	for c in %SubViewport.get_children():
 		%SubViewport.remove_child(c)
 	
+func next_level():
+	var nextLevel = current_level + 1
+	if nextLevel >= SCENES.size():
+		#TODO when we have GAME WIN UI
+		print("GAME WIN")
+	else:
+		await utils.delay(1.0)
+		change_scene(nextLevel)
 
-func change_scene(id:StringName):
-	assert(SCENES.has(id))
+func change_scene(id:int):
+	assert(id < SCENES.size())
 	grid.clear()
 	var level_scn = SCENES[id]
 	var level = level_scn.instantiate()
