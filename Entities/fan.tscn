@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bxgn7blsrdtum" path="res://Entities/fan.gd" id="1_r8uxn"]
 [ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="2_r8uxn"]
 [ext_resource type="PackedScene" uid="uid://cwndy0hfq2t5i" path="res://Assets/obj_SmartFan.glb" id="3_exc1y"]
+[ext_resource type="AudioStream" uid="uid://c33t1u6yjs8xh" path="res://sfx/fan-lo.wav" id="4_y6q78"]
+[ext_resource type="AudioStream" uid="uid://bd5ftepb0wgga" path="res://sfx/fan_hi.wav" id="5_7ieyt"]
 
 [node name="Fan" type="CharacterBody3D" unique_id=805213271]
 script = ExtResource("1_r8uxn")
@@ -12,3 +14,9 @@ metadata/_custom_type_script = "uid://cyvsg2vywmg2h"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
 [node name="obj_SmartFan" parent="." unique_id=1901249669 instance=ExtResource("3_exc1y")]
+
+[node name="NoiseLow" type="AudioStreamPlayer3D" parent="." unique_id=861619997]
+stream = ExtResource("4_y6q78")
+
+[node name="NoiseHigh" type="AudioStreamPlayer3D" parent="." unique_id=821712955]
+stream = ExtResource("5_7ieyt")

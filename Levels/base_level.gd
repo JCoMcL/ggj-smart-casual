@@ -33,8 +33,8 @@ func _ready():
 				switcheroo(c, roomba_scn)
 			elif c.name.begins_with("obj_Smart_Box"):
 				switcheroo(c, smartbox_scn)
-			elif c.name.begins_with("obj_Human"):
-				switcheroo(c, human_scn)
+			elif c.name.begins_with("rig"):
+				print(switcheroo(c, human_scn))
 			elif c.name.begins_with("obj_Smart_Fan"):
 				switcheroo(c, fan_scn)
 			elif c.name.begins_with("obj_Smart_Door"):

@@ -66,8 +66,8 @@ grow_vertical = 0
 [node name="StartGameButton" type="Button" parent="LeftPad" unique_id=1106582936]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_right = NodePath("../../RightPad/ExitButton")
-focus_next = NodePath("../../RightPad/ExitButton")
+focus_neighbor_right = NodePath("../../TopRightPad/LevelSelect")
+focus_next = NodePath("../../TopRightPad/LevelSelect")
 text = "Start Game"
 script = ExtResource("4_l8v81")
 
@@ -86,8 +86,8 @@ grow_vertical = 0
 [node name="ExitButton" type="Button" parent="RightPad" unique_id=2113004957]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-focus_neighbor_left = NodePath("../../LeftPad/StartGameButton")
-focus_previous = NodePath("../../LeftPad/StartGameButton")
+focus_neighbor_left = NodePath("../../TopRightPad/LevelSelect")
+focus_previous = NodePath("../../TopRightPad/LevelSelect")
 text = "Exit"
 script = ExtResource("5_jnlp7")
 
@@ -106,6 +106,8 @@ grow_vertical = 0
 
 [node name="LevelSelect" type="Button" parent="TopRightPad" unique_id=1111270502]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../LeftPad/StartGameButton")
+focus_neighbor_right = NodePath("../../RightPad/ExitButton")
 text = "Level Select"
 script = ExtResource("7_qwhpj")
 
