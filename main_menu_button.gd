@@ -1,4 +1,4 @@
-extends TextureButton
+extends BaseButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func _on_pressed():
 	Root.get_root(self).clear_level()
+	%PauseMenu.set_paused(false)

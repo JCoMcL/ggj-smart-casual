@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dxb1xcrycdusy"]
+
+[ext_resource type="Script" path="res://Entities/fan.gd" id="1_r8uxn"]
+[ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="2_r8uxn"]
+[ext_resource type="PackedScene" uid="uid://cwndy0hfq2t5i" path="res://Assets/obj_SmartFan.glb" id="3_exc1y"]
+
+[node name="Fan" type="CharacterBody3D" unique_id=805213271]
+script = ExtResource("1_r8uxn")
+metadata/_custom_type_script = "uid://cyvsg2vywmg2h"
+
+[node name="CollisionShape3D" parent="." unique_id=540194866 instance=ExtResource("2_r8uxn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="obj_SmartFan" parent="." unique_id=1901249669 instance=ExtResource("3_exc1y")]

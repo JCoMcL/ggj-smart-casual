@@ -1,5 +1,4 @@
-extends TextureRect
-
+extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,29 +8,21 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	
 	# Connect button signals
-	$ResumeButton.pressed.connect(_on_resume_pressed)
-	$MainMenuButton.pressed.connect(_on_main_menu_pressed)
-	$QuitButton.pressed.connect(_on_quit_pressed)
-
-	pass # Replace with function body.
+	%ResumeButton.pressed.connect(_on_resume_pressed)
 
 # Toggle pause menu visibility
 func toggle_pause():
-	get_tree().paused = not get_tree().paused
-	visible = true
+	set_paused(not visible)
 
+func set_paused(b:bool):
+	get_tree().paused = b
+	visible = b
 # Resume button
 func _on_resume_pressed():
 	get_tree().paused = false
 	visible = false
 
-func _on_quit_pressed():
-	get_tree().quit()
-
-func _on_main_menu_pressed():
-	Root.get_root(self).clear_level()
-	_on_resume_pressed()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+# this doesn't work, idk why
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		set_paused(false)

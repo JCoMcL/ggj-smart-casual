@@ -1,10 +1,11 @@
 extends Control
 class_name Root
 
-@onready var pause_menu = $PauseMenuPhone
+@onready var pause_menu = %PauseMenu
 var roomba: Roomba
 var grid: Grid
 
+var current_level:StringName
 var SCENES = {
 	&"1": preload("res://Levels/level_1.tscn"),
 }
@@ -14,14 +15,18 @@ func clear_level():
 	for c in %SubViewport.get_children():
 		%SubViewport.remove_child(c)
 	
-	
+
 func change_scene(id:StringName):
 	assert(SCENES.has(id))
 	var level_scn = SCENES[id]
 	var level = level_scn.instantiate()
 	clear_level()
 	%SubViewport.add_child(level)
+	current_level = id
 	$SubViewportContainer.visible = true
+
+func restart():
+	change_scene(current_level)
 
 func _ready() -> void:
 	$SubViewportContainer.visible=false
@@ -33,7 +38,9 @@ static func get_root(from: Node) -> Root:
 	
 func _input(event):
 	if event.is_action_pressed("ui_cancel") && not is_main_menu(): # Default Esc key
-		pause_menu.toggle_pause()
+		pause_menu.set_paused(true)
+	elif event.is_action_pressed("reset"):
+		restart()
 
 func is_main_menu():
 	return not $SubViewportContainer.visible
