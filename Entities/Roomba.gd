@@ -5,6 +5,7 @@ func _ready() -> void:
 	super()
 
 func move(direction:Vector3):
+	$AudioStreamPlayer3D.play()
 	grid.sync()
 	grid.move(self, direction)
 
