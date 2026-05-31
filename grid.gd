@@ -93,10 +93,13 @@ func remove(n: Node) -> void:
 	grid_changed.emit()
 
 func _init_grid():
+	grid.clear()
 	grid.resize(grid_size)
 	for i in range(grid_size):
+		grid[i] = []
 		grid[i].resize(grid_size)
 	node_positions.clear()
+	grid_history.clear()
 
 func move(n: PhysicsBody3D, dir: Vector3) -> KinematicCollision3D:
 	var initial_pos = snapped_to_grid(n.global_position)
