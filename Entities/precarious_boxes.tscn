@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b0adxcnh6jcln" path="res://Entities/precarious_boxes.gd" id="1_hd3og"]
 [ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="1_wlbb8"]
 [ext_resource type="PackedScene" uid="uid://buo2nawqcyhj8" path="res://Assets/obj_SmartBox.glb" id="2_x320b"]
+[ext_resource type="AudioStream" uid="uid://cpx5ys6vq0hc5" path="res://sfx/collapse.wav" id="4_s1xuh"]
 
 [node name="PrecariousBoxes" type="CharacterBody3D" unique_id=1030670552]
 script = ExtResource("1_hd3og")
@@ -11,3 +12,6 @@ script = ExtResource("1_hd3og")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
 [node name="obj_SmartBox" parent="." unique_id=1202280736 instance=ExtResource("2_x320b")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=692739290]
+stream = ExtResource("4_s1xuh")

@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://cecgykfmoe0mo" path="res://UI_scripts/level_select_panel.gd" id="12_qt76e"]
 [ext_resource type="Script" uid="uid://7trl4kllem1g" path="res://UI_scripts/start_game_Level_3_button.gd" id="12_qwhpj"]
 [ext_resource type="PackedScene" uid="uid://c303bhlufty4o" path="res://level_1_complete.tscn" id="14_qt76e"]
+[ext_resource type="PackedScene" uid="uid://dwclygyy6awwi" path="res://tooltip.tscn" id="17_blcw0"]
+[ext_resource type="Texture2D" uid="uid://b00mfms7mcw47" path="res://Ui/End Screen.png" id="17_r3r3k"]
 [ext_resource type="AudioStream" uid="uid://3sjxqk4uucr3" path="res://Music/Blippy Trance.mp3" id="18_blcw0"]
 
 [node name="Root" type="Control" unique_id=1950327171]
@@ -27,7 +29,7 @@ grow_vertical = 2
 theme = ExtResource("1_3dlgs")
 script = ExtResource("1_pq8q7")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=336997427]
+[node name="TextureRectHomeScreen" type="TextureRect" parent="." unique_id=336997427]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,5 +260,40 @@ grow_vertical = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=927878229]
 stream = ExtResource("18_blcw0")
-volume_db = -7.299
+volume_db = -20.071
 autoplay = true
+
+[node name="Tooltip" parent="." unique_id=259062646 instance=ExtResource("17_blcw0")]
+layout_mode = 0
+
+[node name="TextureRectEndScreen" type="TextureRect" parent="." unique_id=69760138]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -322.0
+offset_right = 1624.0002
+offset_bottom = 910.3811
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("17_r3r3k")
+
+[node name="MainMenuButton" type="Button" parent="TextureRectEndScreen" unique_id=591814841]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -316.19055
+offset_top = -139.04785
+offset_right = 0.00024414063
+grow_horizontal = 0
+grow_vertical = 0
+text = "Main Menu"
+script = ExtResource("12_eji0w")
