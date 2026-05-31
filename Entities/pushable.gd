@@ -1,11 +1,6 @@
-extends StaticBody3D
-
-func _ready() -> void:
-	utils.register(self)
-
-func _process(delta: float) -> void:
-	pass
+extends TileEntity
 
 func nudge(direction: Vector3) -> bool:
+	var pos_before_move = position
 	grid.move(self, direction)
-	return true
+	return position != pos_before_move

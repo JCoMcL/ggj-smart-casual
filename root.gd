@@ -2,7 +2,6 @@ extends Control
 class_name Root
 
 @onready var pause_menu = $PauseMenuPhone
-var roomba: Roomba
 
 var SCENES = {
 	&"1": load("res://Levels/level_1.tscn"),

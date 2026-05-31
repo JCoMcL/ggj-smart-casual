@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends TileEntity
 class_name Human
 
 var target_position: Vector3
@@ -9,9 +9,8 @@ var moving: bool = false
 var stressLevel = 0
 
 func _ready() -> void:
+	super()
 	target_position = position
-	utils.register(self)
-	grid.step.connect(grid_step)
 
 # Call to set the position to move the human toward.
 # xFirst: moves along x then z when true, z then x when false.

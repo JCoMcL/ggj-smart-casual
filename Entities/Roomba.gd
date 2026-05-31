@@ -1,11 +1,8 @@
-extends CharacterBody3D
+extends TileEntity
 class_name Roomba
 
 func _ready() -> void:
-	var root = Root.get_root(self)
-	if root:
-		root.roomba = self
-	utils.register(self)
+	super()
 
 func move(direction:Vector3):
 	grid.sync()
