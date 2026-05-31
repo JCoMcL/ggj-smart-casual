@@ -9,6 +9,7 @@ const RATTLE_ROT_HIGH = 0.035
 
 func _ready() -> void:
 	super()
+	click_action = "Toggle"
 	$NoiseHigh.playing = high_power
 	$NoiseLow.playing = true
 

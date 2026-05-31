@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dwclygyy6awwi"]
+
+[ext_resource type="Theme" uid="uid://xnanukbgbk1d" path="res://Ui/theme.tres" id="1_abxgm"]
+[ext_resource type="Script" uid="uid://lixyuifekecx" path="res://cursor_ui.gd" id="1_gwequ"]
+[ext_resource type="StyleBox" uid="uid://cgi8r5n70jje1" path="res://Ui/style_box_focus.tres" id="3_ohgqh"]
+
+[node name="Tooltip" type="Control" unique_id=259062646]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme = ExtResource("1_abxgm")
+script = ExtResource("1_gwequ")
+
+[node name="Label" type="Label" parent="." unique_id=1839983913]
+layout_mode = 0
+offset_left = -88.0
+offset_top = -34.0
+offset_right = 88.0
+offset_bottom = 10.0
+theme_override_colors/font_shadow_color = Color(0.57142586, 0.6980216, 0.758099, 0.83137256)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+text = "Test"
+horizontal_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=724734463]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 32.0
+offset_right = 42.0
+offset_bottom = 84.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_ohgqh")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1840395337]
+layout_mode = 2
+text = "Click"
+horizontal_alignment = 1

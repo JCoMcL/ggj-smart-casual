@@ -3,6 +3,8 @@ class_name Root
 
 @onready var pause_menu = %PauseMenu
 
+var tooltip:Tooltip
+
 var current_level:int
 var SCENES = [
 	load("res://Levels/level_1.tscn"),
