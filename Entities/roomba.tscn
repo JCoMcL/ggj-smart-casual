@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bm4fghuy1rrrd" path="res://Entities/Roomba.gd" id="1_xakqo"]
 [ext_resource type="PackedScene" uid="uid://7c2gf6vgdbcc" path="res://Assets/obj_Rooba.glb" id="2_kbs4a"]
 [ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="3_dkwem"]
+[ext_resource type="AudioStream" uid="uid://dq6hnby5hbk1g" path="res://sfx/nudge.wav" id="4_i1qov"]
 
 [node name="Roomba" type="CharacterBody3D" unique_id=1452331078]
 script = ExtResource("1_xakqo")
@@ -11,3 +12,7 @@ script = ExtResource("1_xakqo")
 
 [node name="CollisionShape3D" parent="." unique_id=540194866 instance=ExtResource("3_dkwem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1443486339]
+stream = ExtResource("4_i1qov")
+max_polyphony = 3
