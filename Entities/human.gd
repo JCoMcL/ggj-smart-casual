@@ -11,6 +11,15 @@ var stressLevel = 0
 func _ready() -> void:
 	super()
 	target_position = position
+	var level = Level.get_level(self)
+	if level:
+		level.alert.connect(_alert)
+	else:
+		print(self, "failed to find level")
+
+func _alert(alert_pos:Vector3):
+	print(self)
+	set_target(alert_pos, true)
 
 # Call to set the position to move the human toward.
 # xFirst: moves along x then z when true, z then x when false.

@@ -2,23 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cuh7ov4rkeuhh" path="res://Levels/base_level.tscn" id="1_5lru4"]
 [ext_resource type="PackedScene" uid="uid://b4amxo6odgtpx" path="res://Levels/CT_Level_3.glb" id="2_ej5lj"]
-[ext_resource type="Script" uid="uid://fvi2s3mb0cvw" path="res://Entities/door.gd" id="3_ej5lj"]
-[ext_resource type="Script" uid="uid://cyvsg2vywmg2h" path="res://Entities/tile_entity.gd" id="4_padch"]
-[ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="5_uwxw1"]
 
 [node name="BaseLevel" unique_id=810629722 instance=ExtResource("1_5lru4")]
 level_size = 7.5
 
 [node name="Level" parent="." index="1" unique_id=384519107 instance=ExtResource("2_ej5lj")]
-
-[node name="obj_Smart_Door_001" parent="Level" index="81" unique_id=834565097]
-script = ExtResource("3_ej5lj")
-
-[node name="TileEntity" type="CharacterBody3D" parent="Level/obj_Smart_Door_001" index="0" unique_id=51762523]
-script = ExtResource("4_padch")
-metadata/_custom_type_script = "uid://cyvsg2vywmg2h"
-
-[node name="CollisionShape3D" parent="Level/obj_Smart_Door_001/TileEntity" index="0" unique_id=540194866 instance=ExtResource("5_uwxw1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-
-[editable path="Level"]

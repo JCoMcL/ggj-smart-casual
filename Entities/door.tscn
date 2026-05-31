@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://nfej6fx6fcns"]
+
+[ext_resource type="Script" uid="uid://fvi2s3mb0cvw" path="res://Entities/door.gd" id="1_i2j1o"]
+[ext_resource type="PackedScene" uid="uid://cec4cybx11ckj" path="res://Assets/obj_SmartDoor.glb" id="2_b4yas"]
+[ext_resource type="PackedScene" uid="uid://d37l1l665427m" path="res://Entities/box_collider.tscn" id="3_i2j1o"]
+[ext_resource type="AudioStream" uid="uid://cb2rhonkxqq0o" path="res://sfx/doorbell.wav" id="4_l5obt"]
+
+[node name="Door" type="CharacterBody3D" unique_id=1780886648]
+script = ExtResource("1_i2j1o")
+metadata/_custom_type_script = "uid://cyvsg2vywmg2h"
+
+[node name="obj_SmartDoor" parent="." unique_id=16594250 instance=ExtResource("2_b4yas")]
+
+[node name="CollisionShape3D" parent="." unique_id=540194866 instance=ExtResource("3_i2j1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72777104, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=910320884]
+stream = ExtResource("4_l5obt")
+volume_db = 8.0
