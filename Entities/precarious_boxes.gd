@@ -6,9 +6,8 @@ func nudge(direction: Vector3) -> bool:
 	if collision:
 		var col = collision.get_collider()
 		if col is Human:
-			grid.remove(col)
-			col.get_parent().remove_child(col)
-			Root.get_root(self).next_level()
+			col.collision_layer = 0
+			col.setCurrentAnimation("DIE")
 	collision = grid.move(self, direction)
 	if not collision:
 		rotation.x = direction.z * PI / 2
