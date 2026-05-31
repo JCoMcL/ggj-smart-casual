@@ -17,7 +17,7 @@ func clear_level():
 	$SubViewportContainer.visible = false
 	for c in %SubViewport.get_children():
 		%SubViewport.remove_child(c)
-	
+
 func next_level():
 	var nextLevel = current_level + 1
 	if nextLevel >= SCENES.size():
@@ -44,12 +44,12 @@ func restart():
 func _ready() -> void:
 	$SubViewportContainer.visible=false
 	%StartGameButton.grab_focus()
-	
+
 static func get_root(from: Node) -> Root:
 	while from and from is not Root:
 		from = from.get_parent()
 	return from
-	
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel") && not is_main_menu(): # Default Esc key
 		pause_menu.set_paused(true)

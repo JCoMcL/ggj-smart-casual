@@ -13,4 +13,8 @@ clean:
 
 build: export/web/index.html
 
-.PHONY: clean build
+trim-whitespace:
+	find -name '*.gd' | xargs sed -Ei 's/[ 	]+$$//'
+
+
+.PHONY: clean build trim-whitespace

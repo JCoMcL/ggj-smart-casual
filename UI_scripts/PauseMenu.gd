@@ -6,7 +6,7 @@ func _ready() -> void:
 	visible = false
 	# Ensure menu works when game is paused
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	
+
 	# Connect button signals
 	%ResumeButton.pressed.connect(_on_resume_pressed)
 

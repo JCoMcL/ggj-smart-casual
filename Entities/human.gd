@@ -70,7 +70,7 @@ func grid_step() -> void:
 	var next := cur + dir
 	var occupant = grid.get_at_pos(next.x, next.y)
 	var move_dir3 := Vector3(dir.x, 0, dir.y) * grid.tiles_size
-	
+
 	grid.move(self, move_dir3)
 
 func face_direction(dir: Vector3) -> void:
