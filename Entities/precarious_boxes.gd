@@ -11,6 +11,7 @@ func nudge(direction: Vector3) -> bool:
 			Root.get_root(self).next_level()
 	collision = grid.move(self, direction)
 	if not collision:
+		$AudioStreamPlayer3D.play()
 		rotation.x = direction.z * PI / 2
 		rotation.z = direction.x * -PI / 2
 		collision_layer = 0
