@@ -12,13 +12,15 @@ class NodeInfo:
 		parent = n.get_parent()
 
 var node_positions: Dictionary = {}
+var _dirty: bool = false
 
 signal grid_changed
 signal step
 
 func sync():
-	grid_history.append(node_positions.duplicate())
-	print(grid_history.size(), grid_history[-1])
+	if _dirty or grid_history.is_empty():
+		grid_history.append(node_positions.duplicate())
+	_dirty = false
 	step.emit()
 
 const grid_size = 128
@@ -64,9 +66,12 @@ func set_at_pos(n: Node, x: int, y: int) -> bool:
 		return false
 	var old_info: Variant = node_positions.get(n)
 	if old_info != null:
+		if old_info.pos == Vector2i(x, y):
+			return true
 		grid[_to_index(old_info.pos.x)][_to_index(old_info.pos.y)] = null
 	grid[ix][iy] = n
 	node_positions[n] = NodeInfo.new(n)
+	_dirty = true
 	grid_changed.emit()
 	return true
 
@@ -80,6 +85,8 @@ func remove(n: Node) -> void:
 		return
 	grid[_to_index(info.pos.x)][_to_index(info.pos.y)] = null
 	node_positions.erase(n)
+	_dirty = true
+	grid_changed.emit()
 
 func _init_grid():
 	grid.resize(grid_size)
@@ -120,8 +127,8 @@ func undo():
 			if not node3d.is_inside_tree():
 				info.parent.add_child(node3d)
 			node3d.global_position = snapped_to_grid(Vector3(info.pos.x * tiles_size, node3d.global_position.y, info.pos.y * tiles_size))
+	_dirty = false
 	grid_changed.emit()
-	print(grid_history.size(), node_positions)
 
 func clear():
 	_init_grid()

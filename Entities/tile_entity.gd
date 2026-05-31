@@ -6,7 +6,10 @@ func _ready() -> void:
 	grid.snap_to_grid(self)
 	grid.update_pos(self)
 	grid.step.connect(grid_step)
-	print(grid.node_positions)
+	grid.grid_changed.connect(grid_update)
 
 func grid_step() -> void:
+	pass
+
+func grid_update() -> void:
 	pass
