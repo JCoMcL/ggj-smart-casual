@@ -6,4 +6,4 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_pressed():
-	Root.get_root(self).change_scene(2)
+	Root.get_root(self).change_scene(1)
