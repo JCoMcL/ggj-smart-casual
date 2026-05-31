@@ -10,8 +10,6 @@
 [ext_resource type="Script" uid="uid://drju1grn30cn1" path="res://UI_scripts/restart_button.gd" id="8_tw3kd"]
 [ext_resource type="Script" uid="uid://dkaaxerlpqmh5" path="res://main_menu_button.gd" id="12_eji0w"]
 [ext_resource type="AudioStream" uid="uid://3sjxqk4uucr3" path="res://Music/Blippy Trance.mp3" id="18_blcw0"]
-[ext_resource type="Texture2D" uid="uid://b61426lws50hl" path="res://Ui/Restart Level (pausemenu).png" id="19_vte5o"]
-[ext_resource type="Texture2D" uid="uid://dbk37bvcitway" path="res://Ui/Restart Level hover (pausemenu).png" id="20_po8fv"]
 
 [node name="Root" type="Control" unique_id=1950327171]
 layout_mode = 3
@@ -140,23 +138,6 @@ script = ExtResource("12_eji0w")
 layout_mode = 2
 text = "Quit"
 script = ExtResource("5_jnlp7")
-
-[node name="RestartButton" type="TextureButton" parent="PauseMenuPhone" unique_id=1098742905]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -103.75
-offset_top = -57.5
-offset_right = 596.25
-offset_bottom = 342.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("19_vte5o")
-texture_hover = ExtResource("20_po8fv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=927878229]
 stream = ExtResource("18_blcw0")
