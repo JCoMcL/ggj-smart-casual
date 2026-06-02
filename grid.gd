@@ -5,7 +5,8 @@ class_name Grid
 var _step_time_accum:float
 
 var grid: Array[Array] #[Node]
-var grid_history: Array[Dictionary] #[Dictionary][Node -> Vector2i]
+var node_positions: Dictionary = {} #{Node: Vector2i}
+var grid_history: Array[Dictionary] #{Node: Vector2i]
 
 class NodeInfo:
 	var pos: Vector2i
@@ -14,7 +15,6 @@ class NodeInfo:
 		pos = grid.get_object_grid_pos(n)
 		parent = n.get_parent()
 
-var node_positions: Dictionary = {}
 var _dirty: bool = false
 
 signal grid_changed

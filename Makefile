@@ -1,27 +1,27 @@
-default: clean export/web_release.zip
-
-export/web_release.zip: export/web/index.html
-	zip --junk-paths -r $@ export/web/*
+build: export/web_release.zip export/homeicide_windows.zip export/homeicide_linux.zip
 
 export/web/index.html:
 	mkdir -p export/web
 	godot --headless --export-release "Web" $@
+export/web_release.zip: export/web/index.html
+	zip --junk-paths -r $@ export/web/*
 
 export/windows/homeicide.exe:
 	mkdir -p export/windows
 	godot --headless --export-release "Windows Desktop" $@
+export/homeicide_windows.zip: export/windows/homeicide.exe
+	zip --junk-paths -r $@ export/windows/*
 
-export/linux:
-	mkdir -p export
+export/linux/homeicide:
+	mkdir -p export/linux
 	godot --headless --export-release "Linux" $@
+export/homeicide_linux.zip: export/linux/homeicide
+	zip --junk-paths -r $@ export/linux/*
+
 
 clean:
-	rm -rf export/web export/windows export/linux
-	rm -f export/web_release.zip
+	rm -rf export/*
 
-build: export/web/index.html
-build-windows: export/windows/homeicide.exe
-build-linux: export/linux
 
 trim-whitespace:
 	find -name '*.gd' | xargs sed -Ei 's/[ 	]+$$//'
